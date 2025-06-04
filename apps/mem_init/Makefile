@@ -38,12 +38,9 @@ include $(scripts_dir)/Makefile.templates
 #
 # Application definition starts here
 #
-$(eval $(call micro_c.compile_with_rtl,mem_list_obj,mem_list.c)) 
-$(eval $(call micro_c.add_fw_libs,mem_list_obj,nfp)) 
-$(eval $(call micro_c.add_std_libs,mem_list_obj,nfp_cluster_target intrinsic nfp_cluster_target_ring)) 
-$(eval $(call micro_c.add_flags,mem_list_obj,-Qnctx=4)) 
-$(eval $(call fw.add_obj,mem_list,mem_list_obj,i32.me0)) 
-$(eval $(call fw.link_with_rtsyms,mem_list))
+$(eval $(call micro_c.compile_with_rtl,hello_world_obj,hello_world.c)) 
+$(eval $(call fw.add_obj,hello_world,hello_world_obj,i32.me0 i32.me1)) 
+$(eval $(call fw.link_with_rtsyms,hello_world))
 #
 # Debug
 #

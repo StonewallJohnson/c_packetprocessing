@@ -40,7 +40,8 @@ include $(scripts_dir)/Makefile.templates
 #
 $(eval $(call micro_c.compile_with_rtl,hello_world_obj,sizeof.c)) 
 $(eval $(call micro_c.add_fw_libs,hello_world_obj,nfp pkt std net))
-$(eval $(call fw.add_obj,hello_world,hello_world_obj,i32.me0 i32.me1)) 
+$(eval $(call micro_c.add_flags,hello_world_obj,-Qnctx=1))
+$(eval $(call fw.add_obj,hello_world,hello_world_obj,i32.me0)) 
 $(eval $(call fw.link_with_rtsyms,hello_world))
 #
 # Debug
